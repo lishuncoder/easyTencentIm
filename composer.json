@@ -1,0 +1,30 @@
+{
+    "name": "lishun/easy-tencent-im",
+    "keywords": [
+        "php8.0",
+        "tencent",
+        "library",
+        "im",
+        "sdk"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lishun\\EasyTencentIm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lishun",
+            "email": "411906015@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^6.3|^7.0",
+        "tencent/tls-sig-api-v2": "^1.0"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
