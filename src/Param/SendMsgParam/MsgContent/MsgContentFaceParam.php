@@ -1,6 +1,6 @@
 <?php
 
-namespace Lishun\EasyTencentIm\Param\MsgParam\MsgContent;
+namespace Lishun\EasyTencentIm\Param\SendMsgParam\MsgContent;
 
 
 

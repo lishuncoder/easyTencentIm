@@ -1,8 +1,11 @@
 <?php
 
-namespace Lishun\EasyTencentIm\Param\MsgParam;
+namespace Lishun\EasyTencentIm\Param\SendMsgParam;
 
 
+
+use Lishun\EasyTencentIm\Param\SendMsgParam\OfflinePushInfo\AndroidInfoParam;
+use Lishun\EasyTencentIm\Param\SendMsgParam\OfflinePushInfo\ApnsInfoParam;
 
 /**
  * 由于 APNs 推送限制数据包大小不能超过4K，因此除去其他控制字段，建议 Desc 和 Ext 字段之和不要超过3K。
@@ -12,7 +15,7 @@ namespace Lishun\EasyTencentIm\Param\MsgParam;
  *
  * 均为选填
  */
-class SendChatOfflinePushInfoParam
+class OfflinePushInfoParam
 {
     /**
      * 0表示推送，1表示不离线推送。
@@ -35,15 +38,22 @@ class SendChatOfflinePushInfoParam
 
     /**
      * 离线推送透传内容。由于国内各 Android 手机厂商的推送平台要求各不一样，请保证此字段为 JSON 格式，否则可能会导致收不到某些厂商的离线推送。
+     * 这是一个 json string
      * @var string|null
      */
     public ?string $Ext = null;
 
-    //未完成
-    public ?array $AndroidInfo = null;
+    /**
+     * Android 推送
+     * @var AndroidInfoParam|null
+     */
+    public ?AndroidInfoParam $AndroidInfo = null;
 
-    //未完成
-    public ?array $ApnsInfo = null;
+    /**
+     * ApnsInfo 推送
+     * @var ApnsInfoParam|null
+     */
+    public ?ApnsInfoParam $ApnsInfo = null;
 
 
 }

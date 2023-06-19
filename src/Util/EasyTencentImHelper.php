@@ -1,6 +1,7 @@
 <?php
-
+declare (strict_types=1);
 namespace Lishun\EasyTencentIm\Util;
+
 
 class EasyTencentImHelper
 {
@@ -25,7 +26,6 @@ class EasyTencentImHelper
      * @param int $min
      * @param int $max
      * @return int
-     * @throws \Exception
      */
     public static function randomNumberRange(int $min = 0, int $max = 10000000000): int
     {

@@ -1,12 +1,35 @@
 <?php
+declare (strict_types=1);
+namespace Lishun\EasyTencentIm\Param\SendMsgParam;
 
-namespace Lishun\EasyTencentIm\Param;
-
-use Lishun\EasyTencentIm\Param\MsgParam\SendChatMsgBodyParam;
-use Lishun\EasyTencentIm\Param\MsgParam\SendChatOfflinePushInfoParam;
-
-class SendChatMsgParam
+class MsgParam
 {
+
+    /**
+     * 必填
+     * 消息接收方 UserID
+     * @var string
+     */
+    public string $To_Account = '';
+
+
+    /**
+     * 必填
+     * 消息随机数（32位无符号整数），后台用于同一秒内的消息去重。请确保该字段填的是随机
+     * @var int
+     */
+    public int $MsgRandom = 0;
+
+
+    /**
+     * 必填
+     * 消息内容，具体格式请参考 消息格式描述（注意，一条消息可包括多种消息元素，MsgBody 为 Array 类型）
+     * 一条组合消息中只能带一个 TIMCustomElem 自定义消息元素， 其它消息元素数量无限制。
+     * @var MsgBodyParam[]
+     */
+    public array $MsgBody;
+
+
     /**
      * 选填
      * 1：把消息同步到 From_Account 在线终端和漫游上；
@@ -22,14 +45,6 @@ class SendChatMsgParam
      * @var ?string
      */
     public ?string $From_Account = null;
-
-
-    /**
-     * 必填
-     * 消息接收方 UserID
-     * @var string
-     */
-    public string $To_Account = '';
 
     /**
      * 选填
@@ -48,12 +63,7 @@ class SendChatMsgParam
      */
     public ?int $MsgSeq = null;
 
-    /**
-     * 必填
-     * 消息随机数（32位无符号整数），后台用于同一秒内的消息去重。请确保该字段填的是随机
-     * @var int
-     */
-    public int $MsgRandom = 0;
+
 
     /**
      * 选填
@@ -78,13 +88,6 @@ class SendChatMsgParam
     public ?array $SendMsgControl = null;
 
     /**
-     * 必填
-     * 消息内容，具体格式请参考 消息格式描述（注意，一条消息可包括多种消息元素，MsgBody 为 Array 类型）
-     * @var SendChatMsgBodyParam[]
-     */
-    public array $MsgBody;
-
-    /**
      * 选填
      * 消息自定义数据（云端保存，会发送到对端，程序卸载重装后还能拉取到）
      * @var string|null
@@ -101,7 +104,7 @@ class SendChatMsgParam
     /**
      * 选填
      * 离线推送信息配置，具体可参考 消息格式描述
-     * @var SendChatOfflinePushInfoParam|null
+     * @var OfflinePushInfoParam|null
      */
-    public ?SendChatOfflinePushInfoParam $OfflinePushInfo = null;
+    public ?OfflinePushInfoParam $OfflinePushInfo = null;
 }
