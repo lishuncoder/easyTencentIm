@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Lishun\EasyTencentIm\Param\Relationships;
+namespace Lishun\EasyTencentIm\Param\RelationshipsParam;
 
-use Lishun\EasyTencentIm\Param\Relationships\FriendUpdate\UpdateItem;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItem;
 
 class FriendUpdateParam
 {

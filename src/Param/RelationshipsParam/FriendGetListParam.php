@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Lishun\EasyTencentIm\Param\Relationships;
+namespace Lishun\EasyTencentIm\Param\RelationshipsParam;
 
-use Lishun\EasyTencentIm\Param\Relationships\FriendGetList\TagList;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendGetList\TagList;
 
 class FriendGetListParam
 {

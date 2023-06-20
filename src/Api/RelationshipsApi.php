@@ -11,10 +11,10 @@ use JsonException;
 use Lishun\EasyTencentIm\Constants\RelationshipsConst;
 use Lishun\EasyTencentIm\Exception\TencentImException;
 use GuzzleHttp\Exception\GuzzleException;
-use Lishun\EasyTencentIm\Param\Relationships\FriendAddParam;
-use Lishun\EasyTencentIm\Param\Relationships\FriendGetListParam;
-use Lishun\EasyTencentIm\Param\Relationships\FriendImportParam;
-use Lishun\EasyTencentIm\Param\Relationships\FriendUpdateParam;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendAddParam;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendGetListParam;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendImportParam;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdateParam;
 use Lishun\EasyTencentIm\Util\EasyTencentImHelper;
 
 /**

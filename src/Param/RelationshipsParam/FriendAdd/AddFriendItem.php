@@ -1,6 +1,6 @@
 <?php
 declare (strict_types=1);
-namespace Lishun\EasyTencentIm\Param\Relationships\FriendAdd;
+namespace Lishun\EasyTencentIm\Param\RelationshipsParam\FriendAdd;
 
 class AddFriendItem
 {
