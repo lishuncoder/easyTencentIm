@@ -2,9 +2,11 @@
 /**
  * User: liShun
  */
+declare (strict_types=1);
 
 namespace Lishun\EasyTencentIm\Api;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
@@ -28,34 +30,27 @@ class Base
         string $appId = '',
         string $appSecret = '',
         string $baseUrl = '',
-        string $identifier = ''
+        string $identifier = '',
+        ?ClientInterface $client = null
     ) {
-        if (!$appId || !$appSecret) {
-            throw new TencentImException('appId,appSecret error');
+        if (!$appId){
+            throw new TencentImException('参数错误');
         }
+        if (!$appSecret){
+            throw new TencentImException('参数错误');
+        }
+
         $this->appId = $appId;
         $this->appSecret = $appSecret;
         $baseUrl && ($this->baseUrl = $baseUrl);
         $identifier && ($this->identifier = $identifier);
+        $client && ($this->client = $client);
     }
-
-
-    /**
-     * 提供可以被替换的client，方便swoole环境下开发者使用
-     * @param ClientInterface|null $client
-     * @return $this
-     */
-    public function setClient(?ClientInterface $client): self
-    {
-        $client && $this->client = $client;
-        return $this;
-    }
-
 
     /**
      * @param string $unqId
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     protected function getUserSign(string $unqId = ''): string
     {

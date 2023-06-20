@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace Lishun\EasyTencentIm;
 
 use GuzzleHttp\ClientInterface;
-use Lishun\EasyTencentIm\Api\Account;
-use Lishun\EasyTencentIm\Api\Chat;
-use Lishun\EasyTencentIm\Api\Friend;
+use Lishun\EasyTencentIm\Api\AccountApi;
+use Lishun\EasyTencentIm\Api\SingleChatApi;
+use Lishun\EasyTencentIm\Api\RelationshipsApi;
 use Lishun\EasyTencentIm\Api\Operating;
-use Lishun\EasyTencentIm\Api\Profile;
-use Lishun\EasyTencentIm\Api\RecentContact;
+use Lishun\EasyTencentIm\Api\PortraitApi;
+use Lishun\EasyTencentIm\Api\RecentContactApi;
 use Lishun\EasyTencentIm\Exception\TencentImException;
 
 /**
@@ -53,21 +53,21 @@ class TencentIm
     }
 
     /**
-     * @return Account
+     * @return AccountApi
      * @throws TencentImException
      */
-    public function account(): Account
+    public function accountApi(): AccountApi
     {
-        return (new Account($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new AccountApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
     /**
-     * @return Chat
+     * @return SingleChatApi
      * @throws TencentImException
      */
-    public function chat(): Chat
+    public function singleChatApi(): SingleChatApi
     {
-        return (new Chat($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new SingleChatApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
     /**
@@ -76,36 +76,36 @@ class TencentIm
      */
     public function operating(): Operating
     {
-        return (new Operating($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new Operating($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
 
     /**
-     * @return Profile
+     * @return PortraitApi
      * @throws TencentImException
      */
-    public function profile(): Profile
+    public function portraitApi(): PortraitApi
     {
-        return (new Profile($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new PortraitApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
     /**
-     * @return Friend
+     * @return RelationshipsApi
      * @throws TencentImException
      */
-    public function friend(): Friend
+    public function relationshipsApi(): RelationshipsApi
     {
-        return (new Friend($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new RelationshipsApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
 
     /**
-     * @return RecentContact
+     * @return RecentContactApi
      * @throws TencentImException
      */
-    public function recentContact(): RecentContact
+    public function recentContactApi(): RecentContactApi
     {
-        return (new RecentContact($this->appId, $this->appSecret, $this->baseUrl, $this->identifier))->setClient($this->client);
+        return new RecentContactApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
     }
 
 
