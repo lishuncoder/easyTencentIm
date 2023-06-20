@@ -2,7 +2,7 @@
 /**
  * User: liShun
  */
-
+declare (strict_types=1);
 namespace Lishun\EasyTencentIm\Api;
 
 use Exception;

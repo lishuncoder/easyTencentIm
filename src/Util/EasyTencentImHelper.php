@@ -5,6 +5,7 @@ namespace Lishun\EasyTencentIm\Util;
 
 
 use Closure;
+use Exception;
 
 class EasyTencentImHelper
 {
@@ -13,6 +14,7 @@ class EasyTencentImHelper
      * @param int $min
      * @param int $max
      * @return int
+     * @throws Exception
      */
     public static function randomNumberRange(
         int $min = 0,
@@ -127,7 +129,7 @@ class EasyTencentImHelper
 
         if (is_string($key) && ($pos = strrpos($key, '.')) !== false) {
             $array = static::getValue($array, substr($key, 0, $pos), $default);
-            $key = (string)substr($key, $pos + 1);
+            $key = substr($key, $pos + 1);
         }
 
         if (is_object($array)) {

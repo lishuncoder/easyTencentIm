@@ -13,6 +13,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
 use Lishun\EasyTencentIm\Exception\TencentImException;
 use Tencent\TLSSigAPIv2;
+use Throwable;
 
 class Base
 {
@@ -125,7 +126,7 @@ class Base
             $getData = array_merge($getData, $data);
             $getData = http_build_query($getData);
             return $uri . $getData;
-        } catch (\Throwable $throwable) {
+        } catch (Throwable $throwable) {
             throw new TencentImException($throwable->getMessage() . ',trace:' . $throwable->getTraceAsString());
         }
     }

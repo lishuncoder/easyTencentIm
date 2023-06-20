@@ -1,5 +1,5 @@
 <?php
-
+declare (strict_types=1);
 namespace Lishun\EasyTencentIm\Param\PortraitParam\Trait;
 
 trait PortraitTag
@@ -52,14 +52,14 @@ trait PortraitTag
      * AllowType_Type_NeedConfirm：需要经过自己确认对方才能添加自己为好友
      * AllowType_Type_AllowAny：允许任何人添加自己为好友
      * AllowType_Type_DenyAny：不允许任何人添加自己为好友
-     * @var string|null
+     * @var bool|null
      */
     public ?bool $Tag_Profile_IM_AllowType = null;
 
     /**
      *   语言
      * App 本地定义数字与语言的映射关系，需要 App 本地将语言对应的数字转换为文字
-     * @var int|null
+     * @var bool|null
      */
     public ?bool $Tag_Profile_IM_Language = null;
 

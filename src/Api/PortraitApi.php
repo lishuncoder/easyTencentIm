@@ -20,7 +20,7 @@ class PortraitApi extends Base
      * @param string $unqId
      * @param PortraitSetParam|array|null $fields
      * @param array $customPortrait
-     * @return array|null
+     * @return array
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
@@ -73,7 +73,7 @@ class PortraitApi extends Base
      * @param string[] $unqId
      * @param array|PortraitGetParam|null $fields
      * @param array $customPortrait
-     * @return array|null
+     * @return array
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
@@ -127,7 +127,7 @@ class PortraitApi extends Base
      * @param string $unqId
      * @param array|PortraitGetParam|null $fields
      * @param array $customPortrait
-     * @return array|null
+     * @return array
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
