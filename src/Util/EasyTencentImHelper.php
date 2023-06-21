@@ -53,20 +53,16 @@ class EasyTencentImHelper
      * 将对象或对象数组转换为数组
      * @param mixed $object
      * @param array $properties
-     * @param bool $recursive
      * @return array
      */
     public static function toArray(
         mixed $object,
-        array $properties = [],
-        bool  $recursive = true
+        array $properties = []
     ): array {
         if (is_array($object)) {
-            if ($recursive) {
-                foreach ($object as $key => $value) {
-                    if (is_array($value) || is_object($value)) {
-                        $object[$key] = static::toArray($value, $properties, true);
-                    }
+            foreach ($object as $key => $value) {
+                if (is_array($value) || is_object($value)) {
+                    $object[$key] = static::toArray($value, $properties);
                 }
             }
 
@@ -86,11 +82,10 @@ class EasyTencentImHelper
                         }
                     }
 
-                    return $recursive ? static::toArray($result, $properties) : $result;
+                    return static::toArray($result, $properties);
                 }
             }
 
-//            if ($object instanceof Arrayable ) {
             if (method_exists($object, 'toArray')) {
                 $result = $object->toArray();
             } else {
@@ -100,7 +95,7 @@ class EasyTencentImHelper
                     $result[$key] = $value;
                 }
             }
-            return $recursive ? static::toArray($result, $properties) : $result;
+            return static::toArray($result, $properties);
         }
 
         return [$object];

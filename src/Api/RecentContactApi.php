@@ -9,8 +9,10 @@ namespace Lishun\EasyTencentIm\Api;
 use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
 use Lishun\EasyTencentIm\Exception\TencentImException;
+use Lishun\EasyTencentIm\Param\RecentContactParam\CreateContactGroupParam;
 use Lishun\EasyTencentIm\Param\RecentContactParam\DeleteParam;
 use Lishun\EasyTencentIm\Param\RecentContactParam\GetListParam;
+use Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroupParam;
 use Lishun\EasyTencentIm\Util\EasyTencentImHelper;
 
 class RecentContactApi extends Base
@@ -61,4 +63,76 @@ class RecentContactApi extends Base
         return $this->postJsonRequest($this->buildGetData($uri), $postData);
     }
 
+    /**
+     * 创建会话分组数据
+     * @param CreateContactGroupParam|array $contactGroupParam
+     * @return array
+     * @throws GuzzleException
+     * @throws JsonException
+     * @throws TencentImException
+     */
+    public function createContactGroup(
+        CreateContactGroupParam|array $contactGroupParam
+    ): array {
+
+        if (is_array($contactGroupParam)) {
+            $postData = $contactGroupParam;
+        } else {
+            $postData = EasyTencentImHelper::arrayFilter(EasyTencentImHelper::toArray($contactGroupParam));
+
+            //处理item
+//            $groupContactItem = $postData['GroupContactItem'];
+//            foreach ($groupContactItem as $key => $value) {
+//                $tmp = $value['ContactItem'];
+//                $groupContactItem[$key]['ContactItem'] = [];
+//
+//                //构造ContactItem
+//                foreach ($tmp as $k => $v) {
+//                    $tmpV = [
+//                        'To_Account' => $k,
+//                        'Type' => $v
+//                    ];
+//                    $groupContactItem[$key]['ContactItem'][] = $tmpV;
+//                }
+//            }
+//            $postData['GroupContactItem'] = $groupContactItem;
+        }
+
+        $uri = '/v4/recentcontact/create_contact_group';
+        return $this->postJsonRequest($this->buildGetData($uri), $postData);
+    }
+
+
+    /**
+     * 删除会话分组数据
+     * @param string $From_Account 请求方uid
+     * @param string|string[] $GroupName 当前仅支持单个删除
+     * @return array
+     * @throws GuzzleException
+     * @throws JsonException
+     * @throws TencentImException
+     */
+    public function delContactGroup(
+        string       $From_Account = '',
+        string|array $GroupName = ''
+    ): array {
+
+        $postData = [
+            'From_Account' => $From_Account,
+            'GroupName' => is_array($GroupName) ? $GroupName : [$GroupName]
+        ];
+
+        $uri = '/v4/recentcontact/del_contact_group';
+        return $this->postJsonRequest($this->buildGetData($uri), $postData);
+    }
+
+    public function updateContactGroup(
+        UpdateContactGroupParam|array $contactGroupParam
+    ): array {
+
+
+
+        $uri = '/v4/recentcontact/update_contact_group';
+        return $this->postJsonRequest($this->buildGetData($uri), $postData);
+    }
 }

@@ -3,7 +3,7 @@ declare (strict_types=1);
 namespace Lishun\EasyTencentIm\Param\SingleChatParam\MsgContent;
 
 
-use Lishun\EasyTencentIm\Param\SingleChatParam\MsgContent\MsgContentImage\ImageInfoArray;
+use Lishun\EasyTencentIm\Param\SingleChatParam\MsgContent\MsgContentImage\ImageInfoArrayParam;
 
 class MsgContentImageParam
 {
@@ -12,7 +12,7 @@ class MsgContentImageParam
 //    "MsgContent": {
 //        "UUID": "1853095_D61040894AC3DE44CDFFFB3EC7EB720F",
 //        "ImageFormat": 1,
-//        "ImageInfoArray": [
+//        "ImageInfoArrayParam": [
 //            {
 //                "Type": 1,           //原图
 //                "Size": 1853095,
@@ -53,7 +53,7 @@ class MsgContentImageParam
 
 
     /**
-     * @var ImageInfoArray[]|null
+     * @var ImageInfoArrayParam[]|null
      */
     public ?array $ImageInfoArray = null;
 

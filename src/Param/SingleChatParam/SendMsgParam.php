@@ -83,7 +83,7 @@ class SendMsgParam
      * "NoLastMsg"表示该条消息不更新会话列表。
      * "WithMuteNotifications"表示该条消息的接收方对发送方设置的免打扰选项生效（默认不生效）
      * ["NoUnread","NoLastMsg","WithMuteNotifications"]
-     * @var array|null
+     * @var string[]|null
      */
     public ?array $SendMsgControl = null;
 

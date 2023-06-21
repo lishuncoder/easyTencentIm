@@ -1,8 +1,8 @@
 <?php
 declare (strict_types=1);
-namespace Lishun\EasyTencentIm\Param\RelationshipsParam\FriendAdd;
+namespace Lishun\EasyTencentIm\Param\RelationshipsParam\FriendImport;
 
-class AddFriendItem
+class AddFriendItemParam
 {
     /**
      * 必填
@@ -21,22 +21,45 @@ class AddFriendItem
 
     /**
      * 选填
+     * From_Account 对 To_Account 的好友备注时间
+     * @var int|null
+     */
+    public ?int $RemarkTime = null;
+
+    /**
+     * 选填
      * From_Account 对 To_Account 的分组信息，添加好友时只允许设置一个分组，因此使用 String 类型即可，详情可参见 标配好友字段
      * @var string|null
      */
     public ?string $GroupName = null;
 
     /**
-     * 必填
+     * 选填
      * 加好友来源字段，详情可参见 标配好友字段
      * @var string
      */
     public string $AddSource = '';
 
     /**
-     * 选填
      * From_Account 和 To_Account 形成好友关系时的附言信息，详情可参见 标配好友字段
      * @var string|null
      */
     public ?string $AddWording = null;
+
+
+    /**
+     * 选填
+     * From_Account 和 To_Account 形成好友关系的时间
+     * @var string|null
+     */
+    public ?string $AddTime = null;
+
+    /**
+     * From_Account 对 To_Account 的自定义好友数据，每一个成员都包含一个 Tag 字段和一个 Value 字段，详情可参见 自定义好友字段
+     * https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5
+     * @var array|null
+     */
+    public ?array $CustomItem = null;
+
+
 }

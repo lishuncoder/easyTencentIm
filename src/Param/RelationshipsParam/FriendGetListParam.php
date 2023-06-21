@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Lishun\EasyTencentIm\Param\RelationshipsParam;
 
-use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendGetList\TagList;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendGetList\TagListParam;
 
 class FriendGetListParam
 {
@@ -23,9 +23,9 @@ class FriendGetListParam
 
 
     /**
-     * @var TagList
+     * @var TagListParam
      */
-    public TagList $TagList;
+    public TagListParam $TagList;
 
     public array $AllCustomTagList = [];
 }

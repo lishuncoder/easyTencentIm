@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItem;
 
-class SnsItem
+class SnsItemParam
 {
     /**
      * 好友分组：

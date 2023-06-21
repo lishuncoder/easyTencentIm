@@ -64,7 +64,7 @@ class RelationshipsApi extends Base
             $postData = EasyTencentImHelper::arrayFilter(EasyTencentImHelper::toArray($friendImportParam));
 
             //处理tag
-            $addFriendItem = $postData['AddFriendItem'];
+            $addFriendItem = $postData['AddFriendItemParam'];
             foreach ($addFriendItem as $key => $value) {
                 $tmp = $value['CustomItem'];
                 $addFriendItem[$key]['CustomItem'] = [];
@@ -78,7 +78,7 @@ class RelationshipsApi extends Base
                     $addFriendItem[$key]['CustomItem'][] = $tmpV;
                 }
             }
-            $postData['AddFriendItem'] = $addFriendItem;
+            $postData['AddFriendItemParam'] = $addFriendItem;
 
         }
         $uri = '/v4/sns/friend_import';
@@ -104,10 +104,10 @@ class RelationshipsApi extends Base
         } else {
             //tag处理
             $postData = EasyTencentImHelper::arrayFilter(EasyTencentImHelper::toArray($friendUpdateParam));
-            $updateItems = $postData['UpdateItem'];
+            $updateItems = $postData['UpdateItemParam'];
             foreach ($updateItems as $key => $value) {
-                $tmp = $value['SnsItem'];
-                $updateItems[$key]['SnsItem'] = [];
+                $tmp = $value['SnsItemParam'];
+                $updateItems[$key]['SnsItemParam'] = [];
 
                 //构造tag
                 foreach ($tmp as $k => $v) {
@@ -115,10 +115,10 @@ class RelationshipsApi extends Base
                         'Tag' => $k,
                         'Value' => $v
                     ];
-                    $updateItems[$key]['SnsItem'][] = $tmpV;
+                    $updateItems[$key]['SnsItemParam'][] = $tmpV;
                 }
             }
-            $postData['UpdateItem'] = $updateItems;
+            $postData['UpdateItemParam'] = $updateItems;
         }
 
         $uri = '/v4/sns/friend_update';
@@ -183,7 +183,7 @@ class RelationshipsApi extends Base
     /**
      * 校验好友
      * @param string $From_Account
-     * @param array $To_Account
+     * @param string[] $To_Account
      * @param string $CheckType
      * @return array
      * @throws GuzzleException
@@ -255,20 +255,20 @@ class RelationshipsApi extends Base
         } else {
             //tag处理
             $postData = EasyTencentImHelper::arrayFilter(EasyTencentImHelper::toArray($friendGetListParam));
-            $tagList = $postData['TagList'];
-            $postData['TagList'] = [];
+            $tagList = $postData['TagListParam'];
+            $postData['TagListParam'] = [];
             if ($tagList) {
                 foreach ($tagList as $key => $value) {
-                    $postData['TagList'][] = $key;
+                    $postData['TagListParam'][] = $key;
                 }
             } else {
                 $allTagList = EasyTencentImHelper::toArray($friendGetListParam);
                 foreach ($allTagList as $key => $value) {
-                    $postData['TagList'][] = $key;
+                    $postData['TagListParam'][] = $key;
                 }
             }
             if ($postData['AllCustomTagList']) {
-                $postData['TagList'] = array_merge($postData['TagList'], $postData['AllCustomTagList']);
+                $postData['TagListParam'] = array_merge($postData['TagListParam'], $postData['AllCustomTagList']);
             }
             unset($postData['AllCustomTagList']);
         }

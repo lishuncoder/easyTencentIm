@@ -2,9 +2,9 @@
 declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate;
 
-use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItem\SnsItem;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItem\SnsItemParam;
 
-class UpdateItem
+class UpdateItemParam
 {
 
     /**
@@ -15,7 +15,7 @@ class UpdateItem
     public string $To_Account = '';
 
     /**
-     * @var SnsItem
+     * @var SnsItemParam
      */
-    public SnsItem $SnsItem;
+    public SnsItemParam $SnsItem;
 }

@@ -26,6 +26,7 @@ class TencentIm
 
     protected ?ClientInterface $client = null;
 
+    protected bool $debug = false;
 
     /**
      * @param string $appId
@@ -40,7 +41,8 @@ class TencentIm
         string           $appSecret = '',
         string           $baseUrl = '',
         string           $identifier = '',
-        ?ClientInterface $client = null
+        ?ClientInterface $client = null,
+        bool             $debug = false
     ) {
         if (!$appId || !$appSecret) {
             throw new TencentImException('appId,appSecret error');
@@ -49,6 +51,7 @@ class TencentIm
         $this->appSecret = $appSecret;
         $baseUrl && ($this->baseUrl = $baseUrl);
         $identifier && ($this->identifier = $identifier);
+        $this->debug = $debug;
         $client && ($this->client = $client);
     }
 
@@ -58,7 +61,7 @@ class TencentIm
      */
     public function accountApi(): AccountApi
     {
-        return new AccountApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new AccountApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
     /**
@@ -67,7 +70,7 @@ class TencentIm
      */
     public function singleChatApi(): SingleChatApi
     {
-        return new SingleChatApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new SingleChatApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
     /**
@@ -76,7 +79,7 @@ class TencentIm
      */
     public function operating(): Operating
     {
-        return new Operating($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new Operating($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
 
@@ -86,7 +89,7 @@ class TencentIm
      */
     public function portraitApi(): PortraitApi
     {
-        return new PortraitApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new PortraitApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
     /**
@@ -95,7 +98,7 @@ class TencentIm
      */
     public function relationshipsApi(): RelationshipsApi
     {
-        return new RelationshipsApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new RelationshipsApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
 
@@ -105,7 +108,7 @@ class TencentIm
      */
     public function recentContactApi(): RecentContactApi
     {
-        return new RecentContactApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client);
+        return new RecentContactApi($this->appId, $this->appSecret, $this->baseUrl, $this->identifier, $this->client, $this->debug);
     }
 
 

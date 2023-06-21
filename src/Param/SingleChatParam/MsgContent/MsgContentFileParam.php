@@ -31,7 +31,7 @@ class MsgContentFileParam
 
     /**
      * 文件下载方式标记。目前 Download_Flag 取值只能为2，表示可通过Url字段值的 URL 地址直接下载文件。
-     * @var int|null
+     * @var int
      */
-    public ?int $Download_Flag = 2;
+    public int $Download_Flag = 2;
 }

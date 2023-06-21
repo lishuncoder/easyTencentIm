@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RelationshipsParam;
 
-use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItem;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendUpdate\UpdateItemParam;
 
 class FriendUpdateParam
 {
@@ -16,7 +16,7 @@ class FriendUpdateParam
     /**
      * 必填
      * 需要更新的好友对象数组
-     * @var UpdateItem[]
+     * @var UpdateItemParam[]
      */
     public array $UpdateItem = [];
 

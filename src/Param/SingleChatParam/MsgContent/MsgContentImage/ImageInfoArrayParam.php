@@ -2,7 +2,7 @@
 declare (strict_types=1);
 namespace Lishun\EasyTencentIm\Param\SingleChatParam\MsgContent\MsgContentImage;
 
-class ImageInfoArray
+class ImageInfoArrayParam
 {
 
     /**

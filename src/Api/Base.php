@@ -24,20 +24,23 @@ class Base
 
     protected ?ClientInterface $client = null;
 
+    protected bool $debug = false;
+
     /**
      * @throws TencentImException
      */
     public function __construct(
-        string $appId = '',
-        string $appSecret = '',
-        string $baseUrl = '',
-        string $identifier = '',
-        ?ClientInterface $client = null
+        string           $appId = '',
+        string           $appSecret = '',
+        string           $baseUrl = '',
+        string           $identifier = '',
+        ?ClientInterface $client = null,
+        bool             $debug = false
     ) {
-        if (!$appId){
+        if (!$appId) {
             throw new TencentImException('参数错误');
         }
-        if (!$appSecret){
+        if (!$appSecret) {
             throw new TencentImException('参数错误');
         }
 
@@ -46,6 +49,7 @@ class Base
         $baseUrl && ($this->baseUrl = $baseUrl);
         $identifier && ($this->identifier = $identifier);
         $client && ($this->client = $client);
+        $this->debug = $debug;
     }
 
     /**
@@ -87,11 +91,19 @@ class Base
             'json' => $data
         ];
 
+        $jsonData = json_encode($data, JSON_THROW_ON_ERROR);
+
         $response = $this->client->request('POST', $uri, $post);
         $code = $response->getStatusCode();
         $body = $response->getBody()->getContents();
 
-        $jsonData = json_encode($data, JSON_THROW_ON_ERROR);
+        //debug
+        if ($this->debug) {
+            var_dump('uri:' . $uri);
+            var_dump('postJson:' . json_encode($data, JSON_THROW_ON_ERROR));
+            var_dump('resp:' . $body);
+        }
+
         if ($code !== 200) {
             throw new TencentImException('TencentIm Network Error: ' . $uri . ',code:' . $code . ',data:' . $jsonData);
         }

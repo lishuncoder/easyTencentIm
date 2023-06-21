@@ -3,7 +3,7 @@ declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RelationshipsParam;
 
 
-use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendImport\AddFriendItem;
+use Lishun\EasyTencentIm\Param\RelationshipsParam\FriendImport\AddFriendItemParam;
 
 class FriendImportParam
 {
@@ -17,7 +17,7 @@ class FriendImportParam
     /**
      * 必填
      * 消息接收方用户 UserID[]
-     * @var AddFriendItem[]
+     * @var AddFriendItemParam[]
      */
     public array $AddFriendItem = [];
 

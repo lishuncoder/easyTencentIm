@@ -114,7 +114,7 @@ class PortraitApi extends Base
         }
 
         $postData['To_Account'] = array_map('strval', $unqId);
-        $postData['TagList'] = $need;
+        $postData['TagListParam'] = $need;
 
         $uri = '/v4/profile/portrait_get';
         $authData = $this->buildGetData($uri);

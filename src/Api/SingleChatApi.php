@@ -6,6 +6,7 @@ declare (strict_types=1);
 
 namespace Lishun\EasyTencentIm\Api;
 
+use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
 use Lishun\EasyTencentIm\Constants\MsgTypeConst;
@@ -61,6 +62,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneTextMsg(
         string $fromUnqId = '',
@@ -101,6 +103,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneLocationMsg(
         string                   $fromUnqId = '',
@@ -143,6 +146,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneFaceMsg(
         string               $fromUnqId = '',
@@ -184,6 +188,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneSoundMsg(
         string                $fromUnqId = '',
@@ -225,6 +230,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneImageMsg(
         string                $fromUnqId = '',
@@ -267,6 +273,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneFileMsg(
         string               $fromUnqId = '',
@@ -308,6 +315,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneVideoMsg(
         string                $fromUnqId = '',
@@ -351,6 +359,7 @@ class SingleChatApi extends Base
      * @throws GuzzleException
      * @throws JsonException
      * @throws TencentImException
+     * @throws Exception
      */
     public function sendOneCustomMsg(
         string                 $fromUnqId = '',
