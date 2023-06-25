@@ -2,7 +2,7 @@
 
 namespace Lishun\EasyTencentIm\Param\RecentContactParam\CreateContactGroup\GroupContactItem;
 
-class ContactItem
+class ContactItemParam
 {
     /**
      * 必填

@@ -1,6 +1,8 @@
 <?php
 
-namespace Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup\ContactUpdateItem;
+namespace Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup\UpdateGroup;
+
+use Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup\UpdateGroup\ContactUpdateItem\ContactItemParam;
 
 class ContactUpdateItemParam
 {
@@ -14,8 +16,7 @@ class ContactUpdateItemParam
 
     /**
      * 必填
-     * [To_Account=>Type]
-     * @var array
+     * @var ContactItemParam[]
      */
     public array $ContactItem = [];
 }

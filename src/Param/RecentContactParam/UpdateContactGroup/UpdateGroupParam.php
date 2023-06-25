@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup;
 
-use Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup\ContactUpdateItem\ContactUpdateItemParam;
+use Lishun\EasyTencentIm\Param\RecentContactParam\UpdateContactGroup\UpdateGroup\ContactUpdateItemParam;
 
 class UpdateGroupParam
 {

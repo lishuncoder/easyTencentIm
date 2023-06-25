@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Lishun\EasyTencentIm\Param\RecentContactParam\CreateContactGroup;
 
-use Lishun\EasyTencentIm\Param\RecentContactParam\CreateContactGroup\GroupContactItem\ContactItem;
+use Lishun\EasyTencentIm\Param\RecentContactParam\CreateContactGroup\GroupContactItem\ContactItemParam;
 
 class GroupContactItemParam
 {
@@ -17,7 +17,7 @@ class GroupContactItemParam
     /**
      * 必填
      * 待添加的会话列表
-     * @var ContactItem[]
+     * @var ContactItemParam[]
      */
     public array $ContactItem = [];
 }

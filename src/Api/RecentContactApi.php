@@ -83,8 +83,8 @@ class RecentContactApi extends Base
             //处理item
 //            $groupContactItem = $postData['GroupContactItem'];
 //            foreach ($groupContactItem as $key => $value) {
-//                $tmp = $value['ContactItem'];
-//                $groupContactItem[$key]['ContactItem'] = [];
+//                $tmp = $value['ContactItemParam'];
+//                $groupContactItem[$key]['ContactItemParam'] = [];
 //
 //                //构造ContactItem
 //                foreach ($tmp as $k => $v) {
@@ -92,7 +92,7 @@ class RecentContactApi extends Base
 //                        'To_Account' => $k,
 //                        'Type' => $v
 //                    ];
-//                    $groupContactItem[$key]['ContactItem'][] = $tmpV;
+//                    $groupContactItem[$key]['ContactItemParam'][] = $tmpV;
 //                }
 //            }
 //            $postData['GroupContactItem'] = $groupContactItem;
