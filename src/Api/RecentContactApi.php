@@ -126,11 +126,23 @@ class RecentContactApi extends Base
         return $this->postJsonRequest($this->buildGetData($uri), $postData);
     }
 
+    /**
+     * 更新会话分组数据
+     * @param UpdateContactGroupParam|array $contactGroupParam
+     * @return array
+     * @throws GuzzleException
+     * @throws JsonException
+     * @throws TencentImException
+     */
     public function updateContactGroup(
         UpdateContactGroupParam|array $contactGroupParam
     ): array {
 
-
+        if (is_array($contactGroupParam)) {
+            $postData = $contactGroupParam;
+        } else {
+            $postData = EasyTencentImHelper::arrayFilter(EasyTencentImHelper::toArray($contactGroupParam));
+        }
 
         $uri = '/v4/recentcontact/update_contact_group';
         return $this->postJsonRequest($this->buildGetData($uri), $postData);
